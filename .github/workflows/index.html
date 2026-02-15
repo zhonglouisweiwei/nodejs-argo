@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极速之巅 - 顶级赛车赛事介绍</title>
+    <style>
+        :root {
+            --f1-red: #e10600;
+            --wrc-yellow: #ffb400;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-light: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: rgba(0,0,0,0.8);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--f1-red);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* 英雄横幅区 */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+
+        /* 核心内容区 */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--f1-red);
+            margin: 10px auto;
+        }
+
+        /* 赛事卡片布局 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #444;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .f1-bg { background-image: url('https://images.unsplash.com/photo-1594738555260-25c275916962?q=80&w=1000&auto=format&fit=crop'); }
+        .wrc-bg { background-image: url('https://images.unsplash.com/photo-1546768292-fb12f6c92568?q=80&w=1000&auto=format&fit=crop'); }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .f1-tag { background: var(--f1-red); }
+        .wrc-tag { background: var(--wrc-yellow); color: #000; }
+
+        .card h3 { margin-bottom: 15px; font-size: 1.8rem; }
+        
+        ul { list-style: none; margin-top: 15px; }
+        ul li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; }
+        ul li::before { content: '🏁'; margin-right: 10px; }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #000;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">RACING WORLD</div>
+        <div>
+            <span style="margin-left: 20px;">首页</span>
+            <span style="margin-left: 20px;">F1 赛事</span>
+            <span style="margin-left: 20px;">WRC 赛事</span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>追求速度与极限</h1>
+        <p>从铺装路面的巅峰科技到荒野泥沼的英雄远征。在这里，我们见证人类与机械的完美融合。</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">顶级赛事概览</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-img f1-bg"></div>
+                <div class="card-content">
+                    <span class="card-tag f1-tag">Formula 1</span>
+                    <h3>一级方程式锦标赛</h3>
+                    <p>F1 是赛车运动的最高殿堂，汇集了世界上顶尖的汽车工程师和最无畏的赛车手。</p>
+                    <ul>
+                        <li><strong>最高时速：</strong> 可超过 370 km/h</li>
+                        <li><strong>核心特色：</strong> 尖端空气动力学、混合动力单元</li>
+                        <li><strong>知名分站：</strong> 摩纳哥大奖赛、银石、铃鹿</li>
+                        <li><strong>代表厂商：</strong> 法拉利, 梅赛德斯, 红牛</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img wrc-bg"></div>
+                <div class="card-content">
+                    <span class="card-tag wrc-tag">WRC</span>
+                    <h3>世界汽车拉力锦标赛</h3>
+                    <p>WRC 挑战的是全地形的统治力。从冰天雪地到沙尘飞扬，每一秒都在生死的边缘徘徊。</p>
+                    <ul>
+                        <li><strong>地形覆盖：</strong> 碎石、冰雪、柏油、泥浆</li>
+                        <li><strong>核心特色：</strong> 四轮驱动技术、领航员协作</li>
+                        <li><strong>经典分站：</strong> 蒙特卡洛拉力赛、芬兰、希腊</li>
+                        <li><strong>代表厂商：</strong> 丰田, 现代, 福特</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section style="margin-top: 60px; text-align: center; background: #333; padding: 40px; border-radius: 15px;">
+            <h3>为何热爱赛车？</h3>
+            <p style="margin-top: 15px; font-style: italic;">“当你以 300 公里的时速进入弯道时，世界变安静了。只有你，和你的心跳。”</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 赛车文化推广中心 | 让热血永不冷却</p>
+    </footer>
+
+</body>
+</html>
